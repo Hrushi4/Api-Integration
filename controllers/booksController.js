@@ -39,6 +39,9 @@ const createBook = async (req, res, next) => {
 const updateBook = async (req, res, next) => {
   try {
     const { title, author, summary } = req.body;
+    if (!res.book) {
+      return res.status(404).json({ error: "Book not found" });
+    }
     const book = res.book;
     book.title = title || book.title;
     book.author = author || book.author;
