@@ -58,7 +58,7 @@ const deleteBook = async (req, res, next) => {
   try {
     const bookId = req.params.id;
     // Fetch the book from your data source, such as a database
-    const result = await BookModel.deleteOne({ _id: bookId });
+    const result = await Book.deleteOne({ _id: bookId });
 
     if (result.deletedCount === 0) {
       return res.status(404).json({ error: "Book not found" });
