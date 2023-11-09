@@ -60,13 +60,13 @@ https://api-demo-no9l.onrender.com/books/getall
         "id": "1",
         "title": "Book 1",
         "author": "Author 1",
-        "description": "Description 1"
+        "summary": "summary 1"
       },
       {
         "id": "2",
         "title": "Book 2",
         "author": "Author 2",
-        "description": "Description 2"
+        "summary": "summary 2"
       }
     ]
     ```
@@ -84,7 +84,7 @@ https://api-demo-no9l.onrender.com/books/getall
         "id": "1",
         "title": "Book 1",
         "author": "Author 1",
-        "description": "Description 1"
+        "summary": "summary 1"
       }
     ```
 
@@ -96,7 +96,7 @@ https://api-demo-no9l.onrender.com/books/getall
       {
         "title": "New Book",
         "author": "New Author",
-        "description": "New Description"
+        "summary": "New summary"
       }
     ```
 
@@ -106,7 +106,7 @@ https://api-demo-no9l.onrender.com/books/getall
         "id": "3",
         "title": "New Book",
         "author": "New Author",
-        "description": "New Description"
+        "summary": "New summary"
       }
     ```
 
@@ -122,7 +122,7 @@ https://api-demo-no9l.onrender.com/books/getall
       {
         "title": "Updated Book",
         "author": "Updated Author",
-        "description": "Updated Description"
+        "summary": "Updated summary"
       }
     ```
 
@@ -132,7 +132,7 @@ https://api-demo-no9l.onrender.com/books/getall
         "id": "4",
         "title": "Updated Book",
         "author": "Updated Author",
-        "description": "Updated Description"
+        "summary": "Updated summary"
       }
     ```
 
