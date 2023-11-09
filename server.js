@@ -21,17 +21,6 @@ app.use("/books", bookRouter);
 // Error handling middleware
 app.use(errorHandler);
 
-// deployment config
-// const path = require("path");
-// __dirname = path.resolve();
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "/client/build")));
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-//   });
-// }
-
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
