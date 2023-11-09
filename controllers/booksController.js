@@ -40,14 +40,21 @@ const updateBook = async (req, res, next) => {
   try {
     const { title, author, summary } = req.body;
     if (!res.book) {
+      const bookId = req.params.id;
+      // Fetch the book from your data source, such as a database
+      const result = await Book.deleteOne({ _id: bookId });
+      if (!book) {
+        return res.status(404).json({ error: "Book not found" });
+      }
+      book.title = title || book.title;
+      book.author = author || book.author;
+      book.summary = summary || book.summary;
+      const updatedBook = await book.save();
+      res.json(updatedBook);
+    } else {
       return res.status(404).json({ error: "Book not found" });
     }
-    const book = res.book;
-    book.title = title || book.title;
-    book.author = author || book.author;
-    book.summary = summary || book.summary;
-    const updatedBook = await book.save();
-    res.json(updatedBook);
+    return res.status(404).json({ error: "Book not found" });
   } catch (err) {
     next(err);
   }
