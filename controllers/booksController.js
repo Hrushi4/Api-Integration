@@ -39,22 +39,30 @@ const createBook = async (req, res, next) => {
 const updateBook = async (req, res, next) => {
   try {
     const { title, author, summary } = req.body;
-    if (!res.book) {
-      const bookId = req.params.id;
-      // Fetch the book from your data source, such as a database
-      const result = await Book.deleteOne({ _id: bookId });
-      if (!book) {
-        return res.status(404).json({ error: "Book not found" });
-      }
-      book.title = title || book.title;
-      book.author = author || book.author;
-      book.summary = summary || book.summary;
-      const updatedBook = await book.save();
-      res.json(updatedBook);
-    } else {
+    const bookId = req.params.id;
+
+    // Check if the book exists in the database
+    const book = await Book.findById(bookId);
+
+    if (!book) {
       return res.status(404).json({ error: "Book not found" });
     }
-    return res.status(404).json({ error: "Book not found" });
+
+    // Update the book details if provided in the request body
+    if (title) {
+      book.title = title;
+    }
+    if (author) {
+      book.author = author;
+    }
+    if (summary) {
+      book.summary = summary;
+    }
+
+    // Save the updated book
+    const updatedBook = await book.save();
+
+    res.json(updatedBook);
   } catch (err) {
     next(err);
   }
