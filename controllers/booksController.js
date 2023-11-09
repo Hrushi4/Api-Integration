@@ -56,7 +56,15 @@ const updateBook = async (req, res, next) => {
 // Delete a book
 const deleteBook = async (req, res, next) => {
   try {
-    await res.book.remove();
+    const bookId = req.params.id;
+    // Fetch the book from your data source, such as a database
+    const book = await Book.findById(_id);
+
+    if (!book) {
+      return res.status(404).json({ error: "Book not found" });
+    }
+
+    await book.remove();
     res.json({ message: "Book deleted" });
   } catch (err) {
     next(err);
